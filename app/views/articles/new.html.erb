@@ -1,0 +1,17 @@
+<h1>Input form</h1>
+<%= form_for @article do |f| %>
+	<%= f.label :title  %>
+	<%= f.text_field :title %>
+	<%= @article.errors[:title].first unless @article.errors[:title].blank? %>
+	<br/>
+	<%= f.label :content%>
+	<%= f.text_area :content, cols: 20, rows: 10%>
+	<br/>
+	<%= f.label :status %>
+	<%= f.radio_button :status,"Dirilis" %>
+	<%= label :article_status, "Dirilis"%>
+	<%= f.radio_button :status, "Belum Dirilis", :checked => true %>
+	<%= label :article_status,"Belum Dirilis" %>
+	<br/>
+	<%= f.submit :submit%>
+<% end %>
