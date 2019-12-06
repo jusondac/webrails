@@ -5,11 +5,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @comments = Comment.new
   end
   
   def show
     @article = Article.find_by_id(params[:id])
-  #@comments = @article.comments.order("id desc")
+   #@comments = @article.comments.order("id desc")
     @comment = Comment.new
   end
 
