@@ -1,0 +1,13 @@
+<%= form_for @contacts do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br/>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br/>
+    <%= f.label :pesan %>
+    <%= f.text_area :pesan, cols: 20, rows: 10%>
+    <%= @contacts.errors[:pesan].first unless @contacts.errors[:pesan].blank? %>
+    <br/>
+    <%= f.submit :submit %>
+<% end %>

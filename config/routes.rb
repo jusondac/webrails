@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
   get 'home/index'
-  get 'contact_us/index'
   get 'articles/index'
   root 'home#index'
-  resources :articles	
-  resources :contact_us
+  resources :articles
+  resources :contacts
+  resources :comments
 =begin
 get 'articles/index'
 get 'articles/new'

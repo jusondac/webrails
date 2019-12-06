@@ -9,11 +9,14 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find_by_id(params[:id])
+  #@comments = @article.comments.order("id desc")
+    @comment = Comment.new
   end
 
   def edit
     @article = Article.find_by_id(params[:id])
   end
+  
   def update 
     @article = Article.find_by_id(params[:id])
     if @article.update(params_article)
