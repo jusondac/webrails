@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* use ``rails s`` to run it. and if given error, try the moment and run again.
+int this version 2``makasih teh``, there are juast having feature comment send to database sql.
+
