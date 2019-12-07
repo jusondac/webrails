@@ -2,6 +2,13 @@
 <p><i><%= @article.content %></i></p>
 <p><%= link_to 'back to index', articles_path %></p>
 
-<div id="form_comment">
+<div id="form-comment">
 	<%= render 'form'%>
+</div>
+
+
+<h4>Here the comments</h4>
+
+<div id="list-comments">
+    <%= render './comments/comment' %>
 </div>

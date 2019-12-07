@@ -11,16 +11,16 @@
 <h1><b>langkah-langkah menuju jalan berbintang Lima<b></h1>
 <h3><i>Dia tertangkap tangan sedang memukul dada, untuk diambil hatinya</i></h3>
 </div>
-
-<% @articles.each do |article| %>
-	<h3><i><%= article.title %></i></h3>
-	<p><%= article.content.truncate(5) %></p>
-	<button type="button" class="btn btn-outline-primary">
-		<%= link_to 'read more',article_path(article.id)%>
-	</button>
-	<h4>status : <%= article.status%></h4>
-	<p>
-  	<span><%= link_to 'edit',edit_article_path(article.id) %></span>
-  	<span><%= link_to 'delete',article_path(article.id),method: "DELETE",data:{confirm:'Delete this data ?'}%></span>
-	<hr/>
-<% end %>
+<div style="padding-left: 100px;padding-right: 100px;">
+	<% @articles.each do |article| %>
+		<h3><i><%= article.title %></i></h3>
+		<p><%= article.content.truncate(5) %></p>
+		<button type="button" class="btn btn-outline-primary">
+			<%= link_to 'read more',article_path(article.id)%>
+		</button>
+		<h4>status : <%= article.status%></h4>
+	  	<span><%= link_to 'edit',edit_article_path(article.id) %></span>
+	  	<span><%= link_to 'delete',article_path(article.id),method: "DELETE",data:{confirm:'Delete this data ?'}%></span>
+		<hr/>
+	<% end %>
+</div>
