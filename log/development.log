@@ -4706,3 +4706,173 @@ Processing by CommentsController#index as HTML
 Completed 200 OK in 89ms (Views: 85.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-12-08 13:00:51 +0700
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (21.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 1071ms (Views: 1056.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 13:01:06 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (30.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (131.0ms)
+Completed 200 OK in 229ms (Views: 76.7ms | ActiveRecord: 99.6ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-08 13:01:13 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (34.4ms)
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (32.0ms)
+  Rendered articles/show.html.erb within layouts/application (80.4ms)
+Completed 200 OK in 214ms (Views: 112.7ms | ActiveRecord: 27.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-08 22:14:44 +0700
+  [1m[35m (146.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (56.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Started GET "/" for ::1 at 2019-12-08 22:14:46 +0700
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1377ms (Views: 1346.9ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 936ms (Views: 930.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:14:51 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (42.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (278.3ms)
+Completed 200 OK in 407ms (Views: 103.7ms | ActiveRecord: 239.7ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-08 22:17:56 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (90.4ms)
+  [1m[36mComment Load (17.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (59.3ms)
+  Rendered articles/show.html.erb within layouts/application (201.2ms)
+Completed 200 OK in 396ms (Views: 225.4ms | ActiveRecord: 42.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-08 22:22:47 +0700
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 371ms (Views: 362.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:22:50 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 111ms (Views: 64.2ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-08 22:22:53 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (14.4ms)
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (16.6ms)
+  Rendered articles/show.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 129ms (Views: 64.9ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/articles/7" for ::1 at 2019-12-08 22:22:58 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (8.5ms)
+  [1m[36mComment Load (7.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 7[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (11.4ms)
+  Rendered articles/show.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 119ms (Views: 104.7ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/comments" for ::1 at 2019-12-08 22:23:02 +0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R4/v7XtCmEmZ0n50NzuP8VsRZvVed6tBOdKPzNtjUFRDOtqMjoOUnAw4c1tmGVsimUIamUuDae5xkrSn/Bc61A==", "comment"=>{"article_id"=>"7", "comment"=>"Ciee"}, "commit"=>"submit"}
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mComment Create (2.2ms)[0m  [1m[32mINSERT INTO `comments` (`article_id`, `user_id`, `comment`, `status`, `created_at`, `updated_at`) VALUES (7, 1, 'Ciee', 'active', '2019-12-08 15:23:02', '2019-12-08 15:23:02')[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[35m (147.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:8
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 176ms (ActiveRecord: 153.8ms)
+
+
+Started GET "/comments" for ::1 at 2019-12-08 22:23:02 +0700
+Processing by CommentsController#index as HTML
+  Rendering comments/index.html.erb within layouts/application
+  Rendered comments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 60ms (Views: 57.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:23:05 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.4ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/articles/7" for ::1 at 2019-12-08 22:23:08 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (6.2ms)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 7[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 110ms (Views: 102.9ms | ActiveRecord: 2.2ms)
+
+
