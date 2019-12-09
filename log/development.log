@@ -4876,3 +4876,2988 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 110ms (Views: 102.9ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/" for ::1 at 2019-12-08 22:24:41 +0700
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 333ms (Views: 325.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:24:44 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 112ms (Views: 60.7ms | ActiveRecord: 32.3ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-08 22:24:47 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (7.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (17.0ms)
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (22.7ms)
+  Rendered articles/show.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 177ms (Views: 78.4ms | ActiveRecord: 42.1ms)
+
+
+Started GET "/articles/7" for ::1 at 2019-12-08 22:24:54 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (10.5ms)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 7[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (8.0ms)
+  Rendered articles/show.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 106ms (Views: 98.0ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/comments" for ::1 at 2019-12-08 22:25:09 +0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bFeqSMm2IEwc2ia/HOtQxqrxa7iRGP9evqbH2b6ZLMFo4p8pPHcsmYkwK5BNyYQVaKIX1ITsPfH25vyyme1GQQ==", "comment"=>{"article_id"=>"7", "comment"=>"Rencanamu pas ti berhasil rejka"}, "commit"=>"submit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO `comments` (`article_id`, `user_id`, `comment`, `status`, `created_at`, `updated_at`) VALUES (7, 1, 'Rencanamu pas ti berhasil rejka', 'active', '2019-12-08 15:25:09', '2019-12-08 15:25:09')[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[35m (100.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:8
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 115ms (ActiveRecord: 103.3ms)
+
+
+Started GET "/comments" for ::1 at 2019-12-08 22:25:09 +0700
+Processing by CommentsController#index as HTML
+  Rendering comments/index.html.erb within layouts/application
+  Rendered comments/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 91ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:25:10 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 104ms (Views: 99.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/articles/7" for ::1 at 2019-12-08 22:25:13 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:11
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (4.6ms)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 7[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (11.6ms)
+  Rendered articles/show.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 116ms (Views: 109.6ms | ActiveRecord: 2.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (15.5ms)[0m  [1m[34mSELECT GET_LOCK('4800026837596737495', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20191208152617)
+  [1m[35m (1278.5ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20191208152617_create_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191208152617')[0m
+  ↳ bin/rails:9
+  [1m[35m (135.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (78.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('4800026837596737495')[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Started GET "/sign_up" for ::1 at 2019-12-08 22:39:32 +0700
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant UserController):
+  
+bootsnap (1.4.5) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.5) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.5) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.5) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.4) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.4) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.4) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.4) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.4) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.4) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sign_up" for ::1 at 2019-12-08 22:41:17 +0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'ConfimationValidator'):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:6:in `new'
+Started GET "/sign_up" for ::1 at 2019-12-08 22:41:53 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (215.7ms)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 16.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `form_user' for #<#<Class:0x00007f1b353bec08>:0x00007f1b353b6cb0>
+Did you mean?  form_for):
+    1: <%= form_user @user do |f| %>
+    2: 	<%= f.label :username%>
+    3: 	<%= f.text_field :username%>
+    4: 	<%= @user.errors[:username].first unless @user.errors[:username].blank?%>
+  
+app/views/users/new.html.erb:1:in `_app_views_users_new_html_erb___1410073334471545277_69877416992960'
+Started GET "/sign_up" for ::1 at 2019-12-08 22:42:49 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (22.9ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<User:0x00007f1b358cea68>):
+    4: 	<%= @user.errors[:username].first unless @user.errors[:username].blank?%>
+    5: 	<br/>
+    6: 	<%= f.label :email%>
+    7: 	<%= f.text_field :email%>
+    8: 	<%= @user.errors[:email].first unless @user.errors[:email].blank?%>
+    9: 	<br/>
+   10: 	<%= f.label :password%>
+  
+app/views/users/new.html.erb:7:in `block in _app_views_users_new_html_erb___1410073334471545277_69877419584560'
+app/views/users/new.html.erb:1:in `_app_views_users_new_html_erb___1410073334471545277_69877419584560'
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('4800026837596737495', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20191208154535)
+  [1m[35m (988.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20191208154535_create_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191208154535')[0m
+  ↳ bin/rails:9
+  [1m[35m (152.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('4800026837596737495')[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Started GET "/sign_up" for ::1 at 2019-12-08 22:45:59 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 77ms (Views: 53.1ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-08 22:49:55 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 74ms (Views: 54.6ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-08 22:50:01 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 92ms (Views: 49.5ms | ActiveRecord: 27.2ms)
+
+
+Started POST "/users" for ::1 at 2019-12-08 22:50:21 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j3aMG+6HE35r9xLed4mydN2EcMheC2CIYBcnjU5TbtuTFbfceP7sy+3/wDaRmYJ1HOi9DnTkAeagRFtp5HbyNQ==", "user"=>{"username"=>"rejka", "email"=>"zahrawaliyah@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password`, `email`, `created_at`, `updated_at`) VALUES ('rejka', 'idaman', 'zahrawaliyah@gmail.com', '2019-12-08 15:50:21', '2019-12-08 15:50:21')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (164.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/
+Completed 302 Found in 193ms (ActiveRecord: 166.2ms)
+
+
+Started GET "/" for ::1 at 2019-12-08 22:50:22 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 72ms (Views: 69.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('4800026837596737495', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to AddSaltHashToUsers (20191208155234)
+  [1m[35m (515.2ms)[0m  [1m[35mALTER TABLE `users` ADD `password_salt` varchar(255)[0m
+  ↳ db/migrate/20191208155234_add_salt_hash_to_users.rb:3
+  [1m[35m (311.4ms)[0m  [1m[35mALTER TABLE `users` CHANGE `password` `password_hash` varchar(255) DEFAULT NULL[0m
+  ↳ db/migrate/20191208155234_add_salt_hash_to_users.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191208155234')[0m
+  ↳ bin/rails:9
+  [1m[35m (130.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('4800026837596737495')[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Started GET "/sign_up" for ::1 at 2019-12-08 22:59:48 +0700
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 5.5ms)
+
+
+  
+NoMethodError (undefined method `attr_accesor' for #<Class:0x00007f1b35d59678>
+Did you mean?  attr_accessor
+               mattr_accessor
+               cattr_accessor):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:6:in `new'
+Started GET "/sign_up" for ::1 at 2019-12-08 23:00:17 +0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:6:in `new'
+Started GET "/sign_up" for ::1 at 2019-12-08 23:00:46 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 79ms (Views: 49.9ms | ActiveRecord: 15.5ms)
+
+
+Started POST "/users" for ::1 at 2019-12-08 23:01:17 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (16.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 18.5ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:01:47 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 15.7ms)
+
+
+  
+NameError (uninitialized constant User::Bcrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:01:55 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 3.5ms)
+
+
+  
+NameError (uninitialized constant User::Bcrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:02:11 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 23.0ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:04:28 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:13:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:05:21 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 20.3ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:06:32 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 7.5ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:06:42 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 4.9ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:12:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:07:14 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:13:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:09:20 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 21.0ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:11:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-08 23:11:31 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83nEBFNRb7zFUaouhFKeOmhLHa0sVD+RkSfy8UQGx6XvGv/DxSiQCUNZeMZiQq47qSfQawa7Xv9RdI4V7iNbSw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (6.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 10.2ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:11:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started GET "/" for ::1 at 2019-12-09 02:05:57 +0700
+  [1m[35m (152.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 594ms (Views: 491.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 10:28:20 +0700
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 371ms (Views: 352.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 10:28:27 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (540.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (786.2ms)
+Completed 200 OK in 874ms (Views: 117.9ms | ActiveRecord: 730.3ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 10:28:29 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 131ms (Views: 126.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:28:35 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 230ms (Views: 86.4ms | ActiveRecord: 30.9ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:29:08 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gN+2UrheLaSCK3qT9RlnQ7QDk8wdBl1WTUFB/LynbROcvI2VLifSEQQjqHsTCVdCdW9eCjfpPDiNEj0YFoLx/Q==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 105ms (Views: 90.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:29:15 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W/tSRfsX3RZohqT512ZKoqG8T9tUc6LOt69nlB8Du6hHmGmCbW4io+6OdhExdnqjYNCCHX6cw6B3/BtwtSYnRg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 73ms (Views: 65.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:29:24 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vaG396AfdVQjh8eSHpPS2IsJ3uYUVeLM5xIbLmAsZ0ahwowwNmaK4aWPFXr4g+LZSmUTID66g6InQWfKygn7qA==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 5.0ms)
+
+
+  
+NameError (uninitialized constant User::BCrypt):
+  
+app/models/user.rb:13:in `add_salt_to_hash'
+app/controllers/users_controller.rb:14:in `create'
+Started GET "/" for ::1 at 2019-12-09 10:30:17 +0700
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 889ms (Views: 881.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:30:24 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (273.0ms)
+Completed 200 OK in 410ms (Views: 376.3ms | ActiveRecord: 18.7ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:30:34 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qJjYcmktdIRI3CSPLNM8vRGi+ZO4Zlfr6KPFbf7gsXywVimX91KZ5cronrao3zzNSpGIGQO+DFv8fPxHd4eKw==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (34.1ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`) VALUES ('zahra', '$2a$12$JzNtih9.GX57AUqkfLzffewfALi464QNcNdXeaVsVwEwC5AwwKI42', 'rejkamuhammad@gmail.com', '2019-12-09 03:30:35', '2019-12-09 03:30:35', '$2a$12$JzNtih9.GX57AUqkfLzffe')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (183.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/
+Completed 302 Found in 712ms (ActiveRecord: 222.7ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 10:30:35 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 57ms (Views: 54.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:37:30 +0700
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant User::Humanizer):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:6:in `new'
+Started GET "/" for ::1 at 2019-12-09 10:38:02 +0700
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 362ms (Views: 355.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:38:07 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 151ms (Views: 112.5ms | ActiveRecord: 23.3ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:38:48 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K9uTYegxwQJrDO2i3oIneI3C0vP6MuPTX6gdwEQTmeU3uKimfkg+t+0EP0o4khd5TK4fNdDdgr2f+2Ek7jYFCw==", "user"=>{"username"=>"rian", "email"=>"riangumilar@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (4.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rian' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'riangumilar@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 77ms (Views: 57.9ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:39:01 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2vbDWFvnKLXTL+brhP6iQJGYtoe6SOJTe64pMW+zcFbGlfifzZ7XAFUnNANi7pJBUPR7QZCngz27/VXVxZbsuA==", "user"=>{"username"=>"rian", "email"=>"riangumilar@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sumit"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rian' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'riangumilar@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 151ms (Views: 116.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 10:40:45 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:40:53 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 83ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 10:41:05 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 10:41:45 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wvd5a6mS1k1MP1+GsP1y2xmQLmjEnTAk6Ai4yG2rI8tGlEKsP+sp+Mo3jW5W7ULa2Pzjru5yUUooW8Qsx46/JQ==", "user"=>{"username"=>"jusondac", "email"=>"jusondacemail@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"five", "humanizer_question_id"=>"6"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'jusondac' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'jusondacemail@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`) VALUES ('jusondac', '$2a$12$GrfK7/hqFNSkp8u6w3qpNeVGgy4YgRaq0pBpMP.5Wgtf8QQe8N8BC', 'jusondacemail@gmail.com', '2019-12-09 03:41:46', '2019-12-09 03:41:46', '$2a$12$GrfK7/hqFNSkp8u6w3qpNe')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (592.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/
+Completed 302 Found in 1258ms (ActiveRecord: 594.2ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 10:41:47 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 71ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 10:43:15 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 174ms (Views: 63.0ms | ActiveRecord: 13.4ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT GET_LOCK('4800026837596737495', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to AddActivationTokenStatusToUsers (20191209041751)
+  [1m[35m (1220.7ms)[0m  [1m[35mALTER TABLE `users` ADD `activation_token` varchar(255)[0m
+  ↳ db/migrate/20191209041751_add_activation_token_status_to_users.rb:3
+  [1m[35m (612.1ms)[0m  [1m[35mALTER TABLE `users` ADD `activation_status` varchar(255)[0m
+  ↳ db/migrate/20191209041751_add_activation_token_status_to_users.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191209041751')[0m
+  ↳ bin/rails:9
+  [1m[35m (111.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('4800026837596737495')[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Started GET "/articles" for ::1 at 2019-12-09 11:53:30 +0700
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (undefined method `protect_from_foregry' for ApplicationController:Class
+Did you mean?  protect_from_forgery):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/articles_controller.rb:1:in `<top (required)>'
+Started GET "/articles" for ::1 at 2019-12-09 11:54:45 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 84ms (Views: 62.0ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:54:58 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 63ms (Views: 57.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:55:00 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 109ms (Views: 105.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 11:55:01 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 102ms (Views: 93.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:55:03 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 93ms (Views: 85.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-12-09 11:55:03 +0700
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 83ms (Views: 70.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 11:55:46 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 328ms (Views: 320.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:55:52 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 107ms (Views: 57.7ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-09 11:55:54 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:13
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (37.5ms)
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (30.1ms)
+  Rendered articles/show.html.erb within layouts/application (72.3ms)
+Completed 200 OK in 191ms (Views: 114.4ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:55:57 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 118ms (Views: 113.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-12-09 11:57:00 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (2.7ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:13
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (9.5ms)
+  [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (8.9ms)
+  Rendered articles/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 119ms (Views: 104.5ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/comments" for ::1 at 2019-12-09 11:57:04 +0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lr6crUW0MlqU1Ve3pXkNw4itlzRlXXYPQHC4RHnicpWSC6nMsHU+jwE/Wpj0W9kQSv7rWHCptKAIMIMvXpYYFQ==", "comment"=>{"article_id"=>"1", "comment"=>"wkwk"}, "commit"=>"submit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO `comments` (`article_id`, `user_id`, `comment`, `status`, `created_at`, `updated_at`) VALUES (1, 1, 'wkwk', 'active', '2019-12-09 04:57:05', '2019-12-09 04:57:05')[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[35m (122.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:8
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 141ms (ActiveRecord: 124.0ms)
+
+
+Started GET "/comments" for ::1 at 2019-12-09 11:57:05 +0700
+Processing by CommentsController#index as HTML
+  Rendering comments/index.html.erb within layouts/application
+  Rendered comments/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 77ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 11:57:13 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (4.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 82ms (Views: 75.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 11:57:29 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 172ms (Views: 113.6ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 11:57:32 +0700
+  
+SyntaxError (/home/rejka/Documents/project/example/webrails/app/controllers/sessions_controller.rb:36: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/sessions_controller.rb:36: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/sessions/new" for ::1 at 2019-12-09 11:58:28 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"sessions"}, missing required keys: [:id]):
+    1: <%= form_tag session_path do%>
+    2: <%= label_tag :username%>
+    3: <%= text_field_tag :username,(params[:username] unless params[:username].blank?)%>
+    4: <br/>
+  
+app/views/sessions/new.html.erb:1:in `_app_views_sessions_new_html_erb__3137459871375573552_70135720460780'
+Started GET "/sessions/new" for ::1 at 2019-12-09 11:59:14 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 89ms (Views: 87.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 11:59:44 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VvsaZexFh3/SywIdT5k9wMlipfT+t6HSu+0iR62mxndKmCGiejx4ylTD0PWpiQ3BCA5oMtRYwLx7vl6jB4NamQ==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 150ms (Views: 79.8ms | ActiveRecord: 34.7ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 12:00:01 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7voC3H0PD+IUS1SkggDb5FJQ3Xa6RTZ+TCB8MODBIknymTkb63bwV5JDhkxkEOvlkzwQsJCqVxCMcwDUSuS+pw==", "username"=>"zahra", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='zahra' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 79ms (Views: 75.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for ::1 at 2019-12-09 12:01:20 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 79ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:01:55 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6cn15NOqldlEvwzZHvTWh9220y1Kel/rJJuHcFi4BlD1qs4jRdNqbMK33jH45OaGHNoe62CVPoXkyPuU8p2avg==", "user"=>{"username"=>"kingrejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"four", "humanizer_question_id"=>"0"}, "commit"=>"sumit"}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'kingrejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 247ms (Views: 41.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 12:03:39 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 180ms (Views: 95.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 12:03:42 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 90ms (Views: 87.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2019-12-09 12:03:50 +0700
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :check_current_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 12:03:50 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2019-12-09 12:04:02 +0700
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :check_current_user rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 12:04:02 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 48ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 12:04:11 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 121ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:04:34 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vdPX7DsUpJCAJIPJtXMTmULXreRml+bxqmTMtVksEBihsOwrrW1bJQYsUSFTYyOYg7tgIkx4h59qN7BR8wmM9g==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"juny", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (5.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 106ms (Views: 77.4ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:04:48 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wGVhVFNQoefSn6KsoaHz9ZjNeKy6qk9As+olRQ2nV3TcBlqTxSleUlSXcERHscP0WaG1apBFLi5zuVmhp4LLmg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Juny", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 90ms (Views: 69.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:05:13 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8AjnC7q/zaI022s7DFG0+ofeJFF5X9wyoQfHgRrbK/jsa9zMLMYyF7LTudPqQYT7RrLpl1OwvVxhVLtlsP63Fg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Juny", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 100ms (Views: 78.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:05:15 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"adXPGENmOafTi5wT6vl5hftERXmdzq7Y3tqS8eiv0uR1tvTf1R/GElWDTvsM6UmEOiiIv7chz7Yeie4VQopOCg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Juny", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (435.6ms)
+Completed 500 Internal Server Error in 476ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x00007f937d581cf0>:0x00007f937e026b38>
+Did you mean?  @user):
+    13: 	<br/>
+    14: 	<%= f.label :password%>
+    15: 	<%= f.password_field :password%>
+    16: 	<%= user.errors[:password].first unless @user.errors[:password].blank?%>
+    17: 	<br/>
+    18: 	<%= f.label :humanizer_answer, @user.humanizer_question %>
+    19: 	<%= f.text_field :humanizer_answer%>
+  
+app/views/users/new.html.erb:16:in `block in _app_views_users_new_html_erb__100633891433967453_70135725501500'
+app/views/users/new.html.erb:1:in `_app_views_users_new_html_erb__100633891433967453_70135725501500'
+app/controllers/users_controller.rb:24:in `create'
+Started GET "/users" for ::1 at 2019-12-09 12:05:59 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 83ms (Views: 79.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:06:41 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vdPX7DsUpJCAJIPJtXMTmULXreRml+bxqmTMtVksEBihsOwrrW1bJQYsUSFTYyOYg7tgIkx4h59qN7BR8wmM9g==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 74ms (Views: 62.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:07:09 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Erfgk3PtaqpGuNyAAAR2++2bbw94zYbF1iNUF5Wl3LoO1NtU5ZSVH8CwDmjmFEb6LPeiyVIi56sWcCjzP4BAVA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (6.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 141ms (Views: 122.7ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:09:00 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1siA37bXC2zarsEcYf+VrCx1loxGom8zxnkah5F0hivKq7sYIK702VymE/SH76Wt7RlbSmxNDl0GKmZjO1EaxQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (5.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 87ms (Views: 66.8ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:09:43 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mqYlTihceIkVWY5hw6dIVY3RnQMQfD6eJnHedfp5r/OGxR6JviWHPJNRXIklt3hUTL1QxTqTX/DmIqKRUFwzHQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 130ms (Views: 95.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 12:09:49 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 12:09:51 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 69ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 12:09:59 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 88ms (Views: 84.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 12:10:02 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 59ms (Views: 56.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:10:29 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JzVK6AsGzpOeZJ6aPxm47tTDQgWmfDEwWm2w4ArCRvs7VnEvnX8xJhhsTHLZCYjvFa+Pw4yTUF6aPswEoOfaFQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"19", "humanizer_question_id"=>"2"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 98ms (Views: 73.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:10:48 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5ovvn212exXkC+rWyfwvKeXemaWdAFlqVX1pcvWB+bD66NRY+w+EoGIDOD4v7B8oJLJUY7fvOASVLhWWX6RlXg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"11", "humanizer_question_id"=>"2"}, "commit"=>"sumit"}
+  [1m[35m (11.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 521ms (ActiveRecord: 14.0ms)
+
+
+  
+NoMethodError (undefined method `add_activation_token=' for #<User:0x00007f937d1a1860>
+Did you mean?  add_activation_token
+               activation_token=
+               activation_token):
+  
+app/models/user.rb:9:in `add_activation_token'
+app/controllers/users_controller.rb:14:in `create'
+Started GET "/users" for ::1 at 2019-12-09 12:13:33 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 77ms (Views: 56.1ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 12:13:40 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 103ms (Views: 69.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:13:57 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pJFsR0QaRK0WOwQx5xtgUgistR4trVjDhRbY12WBM5648leA0mO7GJAz1tkBC1BTycB42AdCOa1FRaQzz6SvcA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"5", "humanizer_question_id"=>"6"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (10.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 509ms (ActiveRecord: 16.0ms)
+
+
+  
+NoMethodError (undefined method `add_activation_token=' for #<User:0x00007f937e59dd78>
+Did you mean?  add_activation_token
+               activation_token=
+               activation_token):
+  
+app/models/user.rb:22:in `add_activation_token'
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for ::1 at 2019-12-09 12:15:07 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pJFsR0QaRK0WOwQx5xtgUgistR4trVjDhRbY12WBM5648leA0mO7GJAz1tkBC1BTycB42AdCOa1FRaQzz6SvcA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"5", "humanizer_question_id"=>"6"}, "commit"=>"sumit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$PoVcJ3Q487Uya00mhF837.iQi5kEXqf1lnqOCBUy0.o9YZMvfiKOq', 'rejkamuhammad@gmail.com', '2019-12-09 05:15:08', '2019-12-09 05:15:08', '$2a$12$PoVcJ3Q487Uya00mhF837.', 'ley9GLHMXspPqSJs3h1aAA', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (238.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 722ms (ActiveRecord: 256.1ms)
+
+
+  
+SyntaxError (/home/rejka/Documents/project/example/webrails/app/mailers/confirmation_mailer.rb:12: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/mailers/confirmation_mailer.rb:12: syntax error, unexpected keyword_end, expecting end-of-input
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for ::1 at 2019-12-09 12:15:39 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pJFsR0QaRK0WOwQx5xtgUgistR4trVjDhRbY12WBM5648leA0mO7GJAz1tkBC1BTycB42AdCOa1FRaQzz6SvcA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"5", "humanizer_question_id"=>"6"}, "commit"=>"sumit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 100ms (Views: 53.9ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 12:16:02 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 71ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 12:16:06 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 12:16:08 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 104ms (Views: 100.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 12:16:13 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sg6YkX0WMarhJg6nlVCWNKX1hLYV33HMVCfh60Aal3tQIC7+tWebcb/jicHcvbnjry6owZq/zyOjDuj+HFi+Rw==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 109ms (Views: 99.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 12:17:16 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 76ms (Views: 69.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 12:17:20 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 105ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:19:05 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sysoh2Uopp2hIFI+48ddMCLlf+fIPR/G51vs4thqA/9XSBNA81FZKCcogNYF120x44myIeLSfqgnCJAGck+fEQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Thursday", "humanizer_question_id"=>"18"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$MTVHRY9Wf/YB7iJTB5saauG0AwkaVsEWMci/vL2Rqn0blucHiZD5m', 'rejkamuhammad@gmail.com', '2019-12-09 05:19:05', '2019-12-09 05:19:05', '$2a$12$MTVHRY9Wf/YB7iJTB5saau', 'AHsQmVd2LMbc60VyPU8FXQ', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (466.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 328.9ms
+Sent mail to rejkamuhammad@gmail.com (2013.2ms)
+Date: Mon, 09 Dec 2019 12:19:07 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedd94bcbe8c_7f8f2af3e30cd5446677c@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/AHsQmVd2LMbc60VyPU8FXQ/edit
+Completed 500 Internal Server Error in 4742ms (ActiveRecord: 470.7ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00007f9384119710>
+Did you mean?  @user):
+  
+app/controllers/users_controller.rb:20:in `create'
+Started GET "/sign_up" for ::1 at 2019-12-09 12:20:03 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 220ms (Views: 177.2ms | ActiveRecord: 16.6ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:20:16 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QduozG0FkUcx7w0r9r9Tm15+w9fKHq0YVREij8V0C3BduJML+3xu8rfn38MQr2OanxIOEeDxzHaVQl5rb1GXng==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"4", "humanizer_question_id"=>"0"}, "commit"=>"sumit"}
+  [1m[35m (7.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 140ms (Views: 99.0ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/users" for ::1 at 2019-12-09 12:21:03 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 215ms (Views: 135.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 12:21:08 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 101ms (Views: 71.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 12:21:09 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 111ms (Views: 107.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:21:30 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DgdVfHU4nJG8O9/z/46Ge7vnBYMPF5JKhPg3MT6XWpsSZG6740FjJDozDRsZnrZ6eovIRSX48yREq0vVlLLGdQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"east", "humanizer_question_id"=>"11"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 69ms (Views: 60.6ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 12:22:00 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7O3UFvbxthrNzob+6st9H+88LXrtsKgr2dnQSX166hXwju/RYIhJr0vGVBYM200eLlDgvMdfyUUZiqyt1192+w==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"south", "humanizer_question_id"=>"11"}, "commit"=>"sumit"}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$yfIFjYIAecPN.71jIWjBq.VbZOKKvQXjHeg05KTW3VWRXIEVFIl5q', 'rejkamuhammad@gmail.com', '2019-12-09 05:22:00', '2019-12-09 05:22:00', '$2a$12$yfIFjYIAecPN.71jIWjBq.', 'txmsmiOB7y_prwXZxVcCzA', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (153.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.2ms
+Sent mail to rejkamuhammad@gmail.com (1179.0ms)
+Date: Mon, 09 Dec 2019 12:22:01 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedd9f91add6_7f8f2af3e30cd5d06683d@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/txmsmiOB7y_prwXZxVcCzA/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 1848ms (ActiveRecord: 159.2ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 12:54:09 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 106ms (Views: 103.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 12:54:21 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (66.9ms)
+Completed 200 OK in 197ms (Views: 90.4ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/new" for ::1 at 2019-12-09 12:55:01 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2019-12-09 12:55:13 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (5.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-12-09 12:55:18 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 104ms (Views: 101.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:01:55 +0700
+  [1m[35m (264.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (70.5ms)
+Completed 200 OK in 557ms (Views: 501.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:02:30 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xUxyS6nZrk2QOdQ/bRhg/s7RMC7wjylYsyUciPkWznHZL0mMP6BR+BYxBteLCFD/D7396NpgSDZzdmBsUzNSnw==", "user"=>{"username"=>"zahra", "email"=>"zarawaliyah@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Thursday", "humanizer_question_id"=>"18"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (241.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zarawaliyah@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (65.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('zahra', '$2a$12$KX71WSwWM7ny3yhDiy.1QefNN.GUtAhC9fOTm0hfBZz4UVAfKPpai', 'zarawaliyah@gmail.com', '2019-12-09 06:02:31', '2019-12-09 06:02:31', '$2a$12$KX71WSwWM7ny3yhDiy.1Qe', 'm3ddPNXzWD6KSumimfyMfQ', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (272.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.8ms
+Sent mail to zarawaliyah@gmail.com (1922.7ms)
+Date: Mon, 09 Dec 2019 13:02:31 +0700
+To: zarawaliyah@gmail.com
+Message-ID: <5dede37795867_7f8f2af3e30cd6e86691c@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/m3ddPNXzWD6KSumimfyMfQ/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 3104ms (ActiveRecord: 580.8ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:02:33 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 111ms (Views: 77.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:03:18 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 96ms (Views: 93.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:03:21 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 82ms (Views: 78.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:03:31 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"POH0RfwvZqwsLBxLp1RjI0VUwDuSkmLyD10XvG3uyrEggs+CalaZGaokzqNBRFMihDgN/bh9A5zPDmtYx8tWXw==", "username"=>"zahra", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='zahra' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 91ms (Views: 82.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:03:45 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:03:46 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 83ms (Views: 64.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:04:15 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0LMGyNQ3iNq/4XnOYtNdD37YTKfSskgVvJtio18+7+nM0D0PQk53bznpqyaEw20Ov7SBYfhdKXt8yB5H9RtzBw==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Thursday", "humanizer_question_id"=>"18"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (12.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$qoQqZoJKlRBSCoJ8DV7C7.WO0pxMkl7buDT6mykzG0bV4zj33XhBG', 'rejkamuhammad@gmail.com', '2019-12-09 06:04:16', '2019-12-09 06:04:16', '$2a$12$qoQqZoJKlRBSCoJ8DV7C7.', 'aP8-NblUzROHfs583gAjug', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (96.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.8ms
+Sent mail to rejkamuhammad@gmail.com (1292.0ms)
+Date: Mon, 09 Dec 2019 13:04:16 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dede3e093069_7f8f2af3e30cd5d067051@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/aP8-NblUzROHfs583gAjug/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 1891ms (ActiveRecord: 111.8ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:04:17 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:04:21 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (10.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 117ms (Views: 103.0ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:04:38 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:04:39 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 65.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:04:46 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UQ3ZA44UsO8rR1zDTiEFyclwxjXxcDMQBIDoeSMS7ntNbuLEGG1PWq1PjiuoMTXICBwL89ufUn7E05SdiTdylQ==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 114ms (Views: 108.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:20:33 +0700
+  [1m[35m (31.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 163ms (Views: 97.7ms | ActiveRecord: 31.9ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:21:14 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q/d6eT0mr2KELIKYL7vUsx6Vwkk4WH0AQ45QwRZU6JK3lEG+q19Q1wIkUHDJq+Sy3/kPjxK3HG6D3SwlvHF0fA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (4.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 102ms (Views: 67.3ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:21:57 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIW62AqxAozVN4gK769ajv36L62jDcYLegrppR90rHhs5oEfnMj9OVM/WuIJv2qPPJbia4nip2W6WZVBtVEwlg==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"August", "humanizer_question_id"=>"15"}, "commit"=>"sumit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (6.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 123ms (Views: 104.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:22:00 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 124ms (Views: 81.4ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:22:12 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 90ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:22:50 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1hrOgozSIO2Dk61JCHmHfUwty3BjdQ35wGa13VqzvAnKefVFGqvfWAWbf6Huabd8jUEGtkmabJcANck58JYg5w==", "user"=>{"username"=>"zahra", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"60", "humanizer_question_id"=>"9"}, "commit"=>"sumit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'zahra' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('zahra', '$2a$12$iI8VlWm52Pomg1DiNmFB7OiPuuR.Uk48KZiq1OVARFsox9Sn2CqkC', 'rejkamuhammad@gmail.com', '2019-12-09 06:22:50', '2019-12-09 06:22:50', '$2a$12$iI8VlWm52Pomg1DiNmFB7O', '4kMJOeE7PoTnOLdF-tvQYg', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (178.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 0.9ms
+Sent mail to rejkamuhammad@gmail.com (1321.5ms)
+Date: Mon, 09 Dec 2019 13:22:51 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dede83bed7f_7f8f2af3e30cd65c671db@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/4kMJOeE7PoTnOLdF-tvQYg/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 1973ms (ActiveRecord: 181.1ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:22:52 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 46ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:22:55 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 111ms (Views: 107.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:24:13 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 93ms (Views: 90.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:24:33 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1EDsX4rZnDuG/44MnIxv3WdcksmOGZWcTrF121e1EnrII9eYHKBjjgD3XOR6nF/cpjBfD6T29PKO4gk//ZCOlA==", "user"=>{"username"=>"jer", "email"=>"permanarejka@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"good", "humanizer_question_id"=>"12"}, "commit"=>"sumit"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'jer' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'permanarejka@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('jer', '$2a$12$PFeJFJrcU/u6XjZP5myJruyO9dYqGw61VHlXyQa6MWMrmt2cnJnQu', 'permanarejka@gmail.com', '2019-12-09 06:24:33', '2019-12-09 06:24:33', '$2a$12$PFeJFJrcU/u6XjZP5myJru', 'mj7qf0XjTNSbODXcbR-I3g', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (154.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.8ms
+Sent mail to permanarejka@gmail.com (1588.5ms)
+Date: Mon, 09 Dec 2019 13:24:33 +0700
+To: permanarejka@gmail.com
+Message-ID: <5dede8a1d6f23_7f8f2af3e30cd5d067252@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/mj7qf0XjTNSbODXcbR-I3g/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 2252ms (ActiveRecord: 159.5ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:24:35 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:24:37 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 107ms (Views: 101.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:25:30 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:25:38 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G/O5DYHw5DbLMrX/DByTaiCS+4uYIAPF9EfUpv+4BfkHkILKF4kbg006ZxfqDKNr4f42TbLPYqs0FKhCVZ2ZFw==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 115ms (Views: 107.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:25:41 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F76xGKIjwIjDMl5HxEJ15NgGFU3Dz5ahaP4V1vUopS8L3YrfNFo/PUU6jK8iUkXlGWrYi+kg98+orWkyXw05wQ==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 119ms (Views: 112.4ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:25:44 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1X/Nq4NoipklgfG0YO1QCCTNO5hkL0TexwIjwCMU6BbJHPZsFRF1LKOJI1yG/WAJ5aH2Xk7AJbAHUV8kiTF0+A==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 99ms (Views: 87.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:26:06 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yd4Ydlv89f3txqcO3iNKvFaesRQ89Qn5gY5kc70Xb6jVvSOxzYUKSGvOdeY4M3q9l/J80hYaaJdB3RiXFzLzRg==", "username"=>"zahra", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='zahra' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 105ms (Views: 99.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:26:16 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XN98w718VEKh1oSKUTv3prM4aJ2a8qKjx/+ZAc+9GUZAvEcEKwWr9yfeVmK3K8enclSlW7Adw80HrOXlZZiFqA==", "username"=>"jer", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='jer' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 121ms (Views: 107.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:36:11 +0700
+  [1m[35m (32.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (90.6ms)
+Completed 200 OK in 162ms (Views: 99.2ms | ActiveRecord: 54.4ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:36:13 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 104ms (Views: 100.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:36:20 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gihd6Nkg88QSLt47CcE8KA4NtxZOyXfDFzyWhnyCjsdgBuuHEVFZH0zrWV1ALBP/BNabYcGpySzgFZ+TIMCn+w==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 121ms (Views: 115.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:36:26 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 68ms (Views: 50.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:37:23 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wyIOa6S2I9NGHBQsGn7A4UoGj4q2BjJTbqrJT9il8WPfQTWsMs/cZsAUxsT8bvDgi2pCTJzpUz2u+bWrcoBtjQ==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"5", "humanizer_question_id"=>"6"}, "commit"=>"sumit"}
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$5RpyLSGv1iZ7RkeodR7BpOBpAn8wnZrYIso3qSktKmebGQTziZVYG', 'rejkamuhammad@gmail.com', '2019-12-09 06:37:24', '2019-12-09 06:37:24', '$2a$12$5RpyLSGv1iZ7RkeodR7BpO', 'wKuP7U27oEX7lYGpGJj3og', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (237.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 3.0ms
+Sent mail to rejkamuhammad@gmail.com (1804.6ms)
+Date: Mon, 09 Dec 2019 13:37:24 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedeba47535c_7f8f2af3e30cd4b867359@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/wKuP7U27oEX7lYGpGJj3og/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 2573ms (ActiveRecord: 245.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:37:26 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 77ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:37:29 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 117ms (Views: 111.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:37:48 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 103ms (Views: 100.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:37:53 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sZ9ureESSL5lp6JzM3P7mqPkHTCszUYMWijpa6V/qRBTsdjCKWPiZTtiJRV6ntRNqT8xRyOt+OOtAeB++T2ALA==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 114ms (Views: 96.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:41:32 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 93ms (Views: 55.2ms | ActiveRecord: 19.6ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:41:48 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S4bSHPb6LB+ZWThVy/dc6B7awJf5/Vtv+1ZhFDR/E0ZX5enbYIPTqh9R6r0t52zp37YNUdMSOgE7BR3wnlqPqA==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"21", "humanizer_question_id"=>"14"}, "commit"=>"sumit"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$fVV2VucZ8N35sV6V2c1gzO.dNQrasaI3blnZTK7aJ9YtxHV2aOjs6', 'rejkamuhammad@gmail.com', '2019-12-09 06:41:48', '2019-12-09 06:41:48', '$2a$12$fVV2VucZ8N35sV6V2c1gzO', 'k9fhN5smkmIqt1wmoImvSA', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (298.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 2.4ms
+Sent mail to rejkamuhammad@gmail.com (1080.2ms)
+Date: Mon, 09 Dec 2019 13:41:48 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedecacd7724_7f8f2af3e30cd54467479@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/k9fhN5smkmIqt1wmoImvSA/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 1861ms (ActiveRecord: 300.7ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:41:49 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 63ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:41:52 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (22.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 127ms (Views: 66.0ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:41:54 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 90ms (Views: 86.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:42:00 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ppPqR0d2fDKQa67eOfenMU3wx+ResQXeLxa4ABMwyb5EvVwojwfW6c6uKbhwGojmRyvrk9HRuzHYP7EVT3Lggg==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 97ms (Views: 91.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:44:46 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q4TpLynLCuyVWfvPY2aIJQ5Xrn0+TpsExMtYPIHy5JO359Lov7L1WRNRKSeFdrgkzztjuxSh+moEmCTYK9d4fQ==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 69ms (Views: 47.4ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:44:50 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'not actived' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 104ms (Views: 69.8ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:44:51 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 67ms (Views: 65.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:44:56 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PnHpX9PvBYVtK7m8nLcXKyvTCDKwibyeavlqDjnLufjcX18wG56vXjPuPtrVWjj8IQgkRT/pAnGd0GMbZYmQxA==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 120ms (Views: 109.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:49:25 +0700
+  [1m[35m (31.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 651ms (Views: 632.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:49:31 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'not actived' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (67.7ms)
+Completed 200 OK in 144ms (Views: 63.4ms | ActiveRecord: 33.5ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 13:49:52 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (178.7ms)
+Completed 200 OK in 303ms (Views: 265.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 13:50:21 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K15T3jO6Q8k4aLI0/3CbxvXJ5KdzNdzc7mdc/rVSFjY3PWgZpcO8fL5gYNwZYKvHNKUpYVnavbIuNCAaH3eK2A==", "user"=>{"username"=>"rejka2", "email"=>"permanarejka@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"21", "humanizer_question_id"=>"14"}, "commit"=>"sumit"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka2' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'permanarejka@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka2', '$2a$12$.8O2elms0BARY4ZRaaMRQ.zlt270Oln2ajR3BAEde..r09xhQdHwq', 'permanarejka@gmail.com', '2019-12-09 06:50:21', '2019-12-09 06:50:21', '$2a$12$.8O2elms0BARY4ZRaaMRQ.', 'R7xW9TRLnBh4OxPjTtb-1Q', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (188.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 536.5ms
+Sent mail to permanarejka@gmail.com (1807.8ms)
+Date: Mon, 09 Dec 2019 13:50:23 +0700
+To: permanarejka@gmail.com
+Message-ID: <5dedeeaf20041_13203ff9e800939027522@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/R7xW9TRLnBh4OxPjTtb-1Q/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 3872ms (ActiveRecord: 191.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 13:50:24 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 63ms (Views: 57.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-09 13:50:27 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'not actived' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 67ms (Views: 55.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-12-09 13:50:30 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 86ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2019-12-09 13:50:38 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rccmkCJw1WhpnFQr0sz/mopDiuR64xMgaxQPXHNuLSpP6ZD/6gF/szdZ002bIdBNgJimk/WDrc+cPQZJLywEFg==", "username"=>"rejka2", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka2' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 79ms (Views: 75.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/sessions/k9fhN5smkmIqt1wmoImvSA/edit" for 127.0.0.1 at 2019-12-09 13:53:25 +0700
+Processing by SessionsController#edit as HTML
+  Parameters: {"id"=>"k9fhN5smkmIqt1wmoImvSA"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`activation_token` = 'k9fhN5smkmIqt1wmoImvSA' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Exists (18.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' AND `users`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' AND `users`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Update (25.5ms)[0m  [1m[33mUPDATE `users` SET `activation_token` = '', `activation_status` = 'active', `updated_at` = '2019-12-09 06:53:25' WHERE `users`.`id` = 12[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (188.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 348ms (ActiveRecord: 269.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:53:25 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:53:29 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (119.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (176.3ms)
+Completed 200 OK in 256ms (Views: 90.0ms | ActiveRecord: 154.8ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 13:53:32 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 109ms (Views: 104.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 13:53:36 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hKXFeGs3YxDEyxcA5YAAdDvOd4IeqWDXjJjG8erABT0uXd+eibtpclf2CuM5+xZ0AvXsC+2B/jZ9kByJ2gOn2A==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 490ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:53:37 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:53:42 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 101ms (Views: 94.8ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/sessions/12" for 127.0.0.1 at 2019-12-09 13:54:53 +0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HqJ73qCeqB6WJEcwQhb88qHddf3OeKoTyKe4CaWlP84mRqu1yI2i9tsxkwF/HLJoplahwlGdyJ+expUK5VaUsw==", "id"=>"12"}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:54:53 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 53ms (Views: 51.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2019-12-09 13:54:59 +0700
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 74ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:55:02 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 113ms (Views: 106.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:55:03 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 104ms (Views: 101.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:55:04 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 123ms (Views: 117.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:55:05 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 133ms (Views: 121.6ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:55:05 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 133ms (Views: 119.5ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 13:55:07 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 89ms (Views: 83.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sig_up" for 127.0.0.1 at 2019-12-09 13:55:21 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/sig_up"):
+  
+actionpack (5.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sign_up" for 127.0.0.1 at 2019-12-09 13:55:28 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-12-09 13:55:51 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nSNYw87k4bg6yN2pLFeI4zgCiharUT0F7k+BSGi5yYWlx4iopvfrUHfdCZgRXcZ5P4leKTS0X4m4LqxLKEpi+A==", "user"=>{"username"=>"hariansyahhari2", "email"=>"hariansyahhari2@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"15", "humanizer_question_id"=>"4"}, "commit"=>"sumit"}
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'hariansyahhari2' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'hariansyahhari2@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('hariansyahhari2', '$2a$12$vej0pCv6oCF4RXPcyjnMHOqVAJp8Ki5LQS.14H.rUeIgJ1OZ8mm6G', 'hariansyahhari2@gmail.com', '2019-12-09 06:55:52', '2019-12-09 06:55:52', '$2a$12$vej0pCv6oCF4RXPcyjnMHO', 'DdPbzL7dLkha5i8a9tXhvQ', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (161.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.3ms
+Sent mail to hariansyahhari2@gmail.com (1615.8ms)
+Date: Mon, 09 Dec 2019 13:55:52 +0700
+To: hariansyahhari2@gmail.com
+Message-ID: <5dedeff86d4c6_13203ff9e800941c2767e@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/DdPbzL7dLkha5i8a9tXhvQ/edit
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2292ms (ActiveRecord: 167.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:55:54 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 87ms (Views: 80.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:55:57 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 105ms (Views: 93.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 13:56:02 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 69ms (Views: 66.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 13:56:13 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"27Wh3m24631Dc3psUdP8hpc2C3HSXRJvfLmhia9uS11xTbs4jzThH9BOZ4+NqOqGrg2Q+CF1jI6NsXvxn63puA==", "username"=>"hariansyahhari2", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='hariansyahhari2' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 103ms (Views: 90.5ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 13:56:53 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WlMuaSMKAGL9W9aBD0JNotn8687EDhQ0fT1ReFslW6pit/4CSxkKirBOArAySAM43nc/8VvrdrgrXHx7G9bw1w==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 468ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 13:56:54 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 13:56:56 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 12 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 119ms (Views: 82.7ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/sign_up" for ::1 at 2019-12-09 14:02:51 +0700
+  [1m[35m (232.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-12-09 14:03:30 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K2J946mo/dn0BJcQT25I17QvzflIy0uREDO4rIWxSPE3AUYkP9ECbHIMRfipfnjWdUMAP2IkKv/QYMRIL5TUHw==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"4", "humanizer_question_id"=>"0"}, "commit"=>"sumit"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$wQmYcEYodW/6e.DSCbJ2ruvfWVEPWGqNJMM2ODbYY8q3xxOvdpMki', 'rejkamuhammad@gmail.com', '2019-12-09 07:03:31', '2019-12-09 07:03:31', '$2a$12$wQmYcEYodW/6e.DSCbJ2ru', '_YGVd4haVDyDjm-IV8ZXNg', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (251.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 1.1ms
+Sent mail to rejkamuhammad@gmail.com (1585.6ms)
+Date: Mon, 09 Dec 2019 14:03:31 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedf1c383fb4_13203ff9e8009390277ec@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/_YGVd4haVDyDjm-IV8ZXNg/edit
+Redirected to http://localhost:3000/
+Completed 302 Found in 2395ms (ActiveRecord: 255.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-09 14:03:33 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 94ms (Views: 90.7ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/sessions/12" for 127.0.0.1 at 2019-12-09 14:05:52 +0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MftLV14k2p9PUVcIk++c+xVQV84f2hBsuY6wCPoGo98JH5s8NjfQdwJEgzmu5dJhEtuD8YA/cuDv750LuvUIog==", "id"=>"12"}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:05:52 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2019-12-09 14:06:01 +0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 122ms (Views: 118.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-12-09 14:06:14 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I3DrKex5ZP6au4hrOMnzMIQTU/TcvsYazdnxH9aPEagblDtChGpuFteuXFoFw72qg5iHy0NbpJabuNwclny61Q==", "user"=>{"username"=>"rejka", "email"=>"rejkamuhammad@gmail.com", "password"=>"[FILTERED]", "humanizer_answer"=>"Thursday", "humanizer_question_id"=>"18"}, "commit"=>"sumit"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_hash`, `email`, `created_at`, `updated_at`, `password_salt`, `activation_token`, `activation_status`) VALUES ('rejka', '$2a$12$v22rs3VgHWvWWUcpz9MzGuGirWe9UrMIcr/EtzNCdfS.G.mamtvhO', 'rejkamuhammad@gmail.com', '2019-12-09 07:06:15', '2019-12-09 07:06:15', '$2a$12$v22rs3VgHWvWWUcpz9MzGu', '8_kfgBovM2PfYEmn5ARcFg', 'not actived')[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (228.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14
+ConfirmationMailer#confirm_email: processed outbound mail in 2.5ms
+Sent mail to rejkamuhammad@gmail.com (1438.8ms)
+Date: Mon, 09 Dec 2019 14:06:15 +0700
+To: rejkamuhammad@gmail.com
+Message-ID: <5dedf2676502b_13203ff9e80092c82785f@rejka-programming.mail>
+Subject: text confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+tamplate-name: confirm_email
+
+http://localhost:3000/sessions/8_kfgBovM2PfYEmn5ARcFg/edit
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2195ms (ActiveRecord: 232.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:06:16 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 85ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:06:19 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 111ms (Views: 102.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/sessions/8_kfgBovM2PfYEmn5ARcFg/edit" for 127.0.0.1 at 2019-12-09 14:12:21 +0700
+  [1m[35m (230.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#edit as HTML
+  Parameters: {"id"=>"8_kfgBovM2PfYEmn5ARcFg"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`activation_token` = '8_kfgBovM2PfYEmn5ARcFg' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'rejka' AND `users`.`id` != 16 LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rejkamuhammad@gmail.com' AND `users`.`id` != 16 LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Update (3.4ms)[0m  [1m[33mUPDATE `users` SET `activation_token` = '', `activation_status` = 'active', `updated_at` = '2019-12-09 07:12:21' WHERE `users`.`id` = 16[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (115.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 154ms (ActiveRecord: 131.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:12:22 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 110ms (Views: 103.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:12:24 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 132ms (Views: 122.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 14:12:27 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 90ms (Views: 86.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:12:32 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f4+BrFtf0m6OHVrGQ8Zk9mfXY+nkE8TYif4y8IEZHbPVd5tKudPYDB0gRyWfvXL2Xuz4YBc7Wjl49uiIsdq/Vg==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 501ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:12:32 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:12:35 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 83ms (Views: 76.7ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/sessions/16" for 127.0.0.1 at 2019-12-09 14:12:50 +0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Is2GmRnAbbBllmxN6rUDfwmxtN0NePITcT/m6zQNcK8aKVbycdNnWCiDuHzXv03lDjpg4pKdkJ8nXsvodP7b0g==", "id"=>"16"}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:12:50 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:12:52 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 102ms (Views: 96.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 14:12:53 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 61ms (Views: 59.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:12:59 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tS8pz1I0IiowoeW80NUtKez5XVWMQaedyaE0yGG8xtEf1zMpsLgoSKOc+F8Mrjsp1cLG3H9pOXw4qe6wUX9kNA==", "username"=>"rejka ' -- ", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka \' -- ' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 63ms (Views: 59.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:13:02 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qRBwqfKpvFp/S89Hdm0Q5uAAnlu4xMdVejkxx2eF+/OR9KDCmrq2sjJeG3ZLZ15854tKZCchpdksWBzEJ3ZQjg==", "username"=>"rejka ' -- ", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka \' -- ' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 82ms (Views: 75.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:13:17 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d+keRL0db5FopBO21OJn/g9N5JGiRkLsbXVN7k4jJsdPDc4v1Q5leSWxx4fp6ClkCMYwrj2jIGA7FGDtDtCNug==", "username"=>"rejka' -- ", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka\' -- ' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 85ms (Views: 66.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:13:22 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V0cgijZBujUXYFTh6FWiXgDx9XWGGnFXLiINbQb6DH5vo/DhXlKw3Vp1gNDVX+zEB3ohShn/E9t4QyBuRgmnAw==", "username"=>"rejka' -- '", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka\' -- \'' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 58ms (Views: 55.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:13:49 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+wcJLre4TqMnczPcUlG1H4+bBKCsTFXODFzTuFeCAUPD49lF36tES2pm5+1vW/uFiBDQnzOpN0JaPf67F3GqPg==", "username"=>"rejka", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='rejka' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 501ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:13:49 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:13:53 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 16 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (4.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 93ms (Views: 84.0ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/articles/9" for 127.0.0.1 at 2019-12-09 14:14:05 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:13
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_form.html.erb (18.7ms)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 9[0m
+  ↳ app/views/comments/_comment.html.erb:2
+  Rendered comments/_comment.html.erb (33.0ms)
+  Rendered articles/show.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 289ms (Views: 113.7ms | ActiveRecord: 31.7ms)
+
+
+Started DELETE "/sessions/16" for 127.0.0.1 at 2019-12-09 14:15:41 +0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kbq8sBXYW/HFi/wgiuM+XOFCx7ytjpABkrjdIJsYX7SpXmzbfctRGYieKBG36XDG5skTgzJr8o3E2fAj2+v0yQ==", "id"=>"16"}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-09 14:15:41 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-12-09 14:15:43 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:22
+  Rendered articles/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 105ms (Views: 98.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2019-12-09 14:15:44 +0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 113ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-12-09 14:16:12 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yrGv0DhjfHsmuD/DzoTnTUKnuVdWWbVXn91YOIBUs75gSbU22u92GbWFIiAS//FNe5wi3qVxK7Zu1YJAsJcRWw==", "username"=>"'=\"-'", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (username ='\'=\"-\'' and activation_status ='active') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 113ms (Views: 95.5ms | ActiveRecord: 2.0ms)
+
+
