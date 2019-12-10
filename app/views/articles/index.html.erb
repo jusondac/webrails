@@ -2,32 +2,35 @@
 <h1>Articles#index</h1>
 <p>Find me in app/views/articles/index.html.erb</p>
 -->
+
+
+<% flash.each do |key,value|%>
+	<div class="alert alert-<%key%> "><%=value%></div> 
+<% end %>
+<div class="jumbotron text-center">
 <h4>
-	<% if !current_user %>
+	<% if !current_user %> 
+	Anda harus login dulu
 	<%= link_to 'Log-in',new_session_path%>
+	<% elsif current_user.username%>
+	si mamangg <%= current_user.username%> 
+	<%= link_to 'Log-Out',session_path(current_user.id),method: "DELETE"%>
 	<% else %>
-	Hello <%= current_user.username %>
+	Hello <%= current_user.username %> selamat datang di Departemen kepastian
 	<%= link_to 'Log-Out',session_path(current_user.id),method: "DELETE"%>
 	<% end %>
 </h4>
-
-<% flash.each do |key,value|%>
-	<div class="alert alert-<%key %> "><%=value%></div> 
-<% end %>
-<div class="jumbotron text-center">
-<h1><b>langkah-langkah menuju jalan berbintang Lima<b></h1>
-<h3><i>Dia tertangkap tangan sedang memukul dada, untuk diambil hatinya</i></h3>
+<p><i>departemen kepastian, jangan jadikan kami alasan bahwa anda kecewa</i></p>
 </div>
 <div style="padding-left: 100px;padding-right: 100px;">
 	<% @articles.each do |article| %>
 		<h3><i><%= article.title %></i></h3>
-		<p><%= article.content.truncate(5) %></p>
-		<button type="button" class="btn btn-outline-primary">
-			<%= link_to 'read more',article_path(article.id)%>
-		</button>
-		<h4>status : <%= article.status%></h4>
-	  	<span><%= link_to 'edit',edit_article_path(article.id) %></span>
-	  	<span><%= link_to 'delete',article_path(article.id),method: "DELETE",data:{confirm:'Delete this data ?'}%></span>
+		<p><%= article.content.truncate(20) %></p>
+		<%= link_to 'read more',article_path(article.id),class:"btn btn-info"%>
+		
+	  	<span><%= link_to 'edit',edit_article_path(article.id),class:"btn btn-info" %></span>
+	  	<span><%= link_to 'delete',article_path(article.id),method: "DELETE",data:{confirm:'Delete this data ?'},class:"btn btn-info"%></span>
+	  	<p><i>status : <%= article.status%></i></p>
 		<hr/>
 	<% end %>
 </div>

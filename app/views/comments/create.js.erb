@@ -1,0 +1,10 @@
+<% if @comment.errors.present?%>
+	$("#form-comment").html(" <%= j( render 'comments/form' ) %>");
+    $($(".field_with_errors")[0]).append("<p class = 'message'> <%= escape_javascript( @comment.errors[:content].first ) %></p>");
+
+<% else %>
+	$("#list-comments").html(" <%= j( render @article.comments.order("id desc") ) %>");
+
+    $("#text_content").val('');
+    $("div.field_with_errors p.message").remove();
+<% end %>

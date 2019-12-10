@@ -3,5 +3,5 @@ class Article < ActiveRecord::Base
 	validates :content, presence:true, length:{minimum:10}
 	validates :status, presence:true
 	scope :status_active,->{where(status:'Dirilis')}
-	has_many :comment, dependent: :destroy
+	has_many :comments, dependent: :destroy
 end

@@ -62,12 +62,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "gmail.com",
-    :user_name => "Rejka",
-    :password => "wkwkwk",
-    :authentication => "plain",
-    :enable_starttls_auto => true
+    :user_name => 'aae32c2edc732b',
+    :password => 'b02a86b4f93111',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
   }
 end

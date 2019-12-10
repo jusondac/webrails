@@ -1,5 +1,3 @@
-<div>
-<% @article.comment.each do |f| %>
-	<p><%= f.comment%></p>
+<% @article.comments.each do |f|%>
+	<p><b><%= f.user_id%></b> : <%= f.comment%> </p>
 <% end %>
-</div>
