@@ -22,7 +22,12 @@
 </h4>
 <p><i>departemen kepastian, jangan jadikan kami alasan bahwa anda kecewa</i></p>
 </div>
-<div style="padding-left: 100px;padding-right: 100px;">
+
+
+
+
+
+<div style=>
 	<% @articles.each do |article| %>
 		<h3><i><%= article.title %></i></h3>
 		<p><%= article.content.truncate(20) %></p>
@@ -33,4 +38,5 @@
 	  	<p><i>status : <%= article.status%></i></p>
 		<hr/>
 	<% end %>
+	<%= paginate @articles%>
 </div>

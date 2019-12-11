@@ -65,3 +65,4 @@ gem 'bootstrap','>=4.3.1'
 gem "jquery-rails"
 gem 'bcrypt-ruby',require:'bcrypt'
 gem 'humanizer'
+gem 'kaminari'

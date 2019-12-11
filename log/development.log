@@ -14755,3 +14755,147 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 75ms (Views: 63.0ms | ActiveRecord: 9.4ms)
 
 
+Started GET "/" for ::1 at 2019-12-11 11:02:24 +0700
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 304ms (Views: 296.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-11 11:02:27 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 23 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 23 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 23 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = 23 and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (96.7ms)
+Completed 200 OK in 166ms (Views: 96.1ms | ActiveRecord: 53.1ms)
+
+
+Started DELETE "/sessions/23" for ::1 at 2019-12-11 11:02:30 +0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NFGn/3O9qdZpC0aS6lAhUr5TaKy+JW6cTsSUTDlmYaCdEn89EwkecQ5dBcSl3qj5pGXI5G37XNc1eJHu81imLw==", "id"=>"23"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-11 11:02:30 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 71ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-11 11:06:27 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-11 11:06:29 +0700
+Processing by ArticlesController#index as HTML
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `page' for #<Class:0x00007f34f5ccf778>):
+  
+app/controllers/articles_controller.rb:5:in `index'
+Started GET "/articles" for ::1 at 2019-12-11 11:06:41 +0700
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/rejka/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 0[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (76.8ms)
+Completed 200 OK in 490ms (Views: 446.8ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/articles?page=3" for ::1 at 2019-12-11 11:06:47 +0700
+Processing by ArticlesController#index as HTML
+  Parameters: {"page"=>"3"}
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 8[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (19.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 92ms (Views: 69.0ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-12-11 11:06:50 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 0[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (49.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (82.2ms)
+Completed 200 OK in 145ms (Views: 74.4ms | ActiveRecord: 53.9ms)
+
+
+Started GET "/articles?page=2" for ::1 at 2019-12-11 11:06:53 +0700
+Processing by ArticlesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (2.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 4[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (14.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (81.3ms)
+Completed 200 OK in 148ms (Views: 126.7ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/articles?page=2" for ::1 at 2019-12-11 11:07:15 +0700
+Processing by ArticlesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 4[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (13.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 91ms (Views: 71.5ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/articles?page=2" for ::1 at 2019-12-11 11:07:17 +0700
+Processing by ArticlesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE (id = NULL and activation_status = 'active' ) ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` LIMIT 4 OFFSET 4[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:36
+  Rendered articles/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 77ms (Views: 65.7ms | ActiveRecord: 9.6ms)
+
+
