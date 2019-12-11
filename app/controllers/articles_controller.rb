@@ -2,7 +2,17 @@ class ArticlesController < ApplicationController
   before_action :check_current_user,only:[:new,:create,:edit,:update,:destroy]
 
   def index
-    @articles = Article.page(params[:page]).per(4)
+    @articles = Article.page(params[:page]).per(6)
+    respond_to do |format|
+      if params[:search].present?
+        format.js{
+          @articles = Article.where("title like ? or content like ?","%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(6)
+        }
+        format.html
+      else
+        format.html
+      end
+    end
   end
 
   def new

@@ -12,7 +12,6 @@
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#">DepKa</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
@@ -24,7 +23,21 @@
         </li>
         <li class="nav-item">
           <%= link_to 'contacts',contacts_path, :class => 'nav-link'%>
-        </li>    
+        </li>
+        <% if !current_user %> 
+          <li class="nav-item">
+          <%= link_to 'Login',new_session_path,:class => 'nav-link'%>
+          </li>
+          <li class="nav-item">
+          <%= link_to 'Signup',sign_up_path,:class=>'nav-link'%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><%= current_user.username %></a>
+          </li><li>
+          <%= link_to 'Log-Out',session_path(current_user.id),method: "DELETE",:class=>'nav-link'%>
+          </li>
+        <% end %>
       </ul>
     </div>  
   </nav>
